@@ -28,7 +28,7 @@ export class RegisterComponent {
         if (this.ngForm.form.invalid) {
             return;
         }
-        // TODO utiliser registrationService pour ajouter un nouvel utilisateur
-        // TODO utiliser this.router.navigate pour rediriger l'utilisateur vers la page de login
+       if(!this.registrationService.register(this.ngForm.form.value)) return;
+       this.router.navigate(['/login'])
     }
 }
