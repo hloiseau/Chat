@@ -23,7 +23,7 @@ export class LoginComponent {
         try {
 
             await this.authService.authenticate(this.model);
-            this.router.navigate(["/"])
+            this.router.navigate(["/"]);
 
             // TODO utiliser authService en async/await pour authentifier l'utilisateur
             // TODO redirection sur "/"

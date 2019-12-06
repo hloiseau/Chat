@@ -18,7 +18,8 @@ export class SocialFeedComponent implements OnInit {
     ) { }
 
     onSubmit(message: string) {
-        //TODO utiliser le postSerice pour ajouter le message
+        this.postService.post(this.channelId, message).then(t => console.log(t))
+
     }
 
     ngOnInit() {
@@ -29,6 +30,7 @@ export class SocialFeedComponent implements OnInit {
                     .getAll(this.channelId)
                     .then((items) => {
                         this.items = items
+                        console.log(this.items)
                     });
             });
     }

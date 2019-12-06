@@ -14,17 +14,17 @@ export class UserInputsComponent {
 
     @Input() channelId: string;
     message:string;
-    
+
     @Output()
     submitted: EventEmitter<any> = new EventEmitter();
 
     constructor(
-        private postervice: PostService
+        private postService: PostService
     ) {
     }
 
     send() {
         if(!this.message) return;
-        // TODO envoyer le message via l'évènement submitted
+        this.submitted.emit(this.message)
     }
 }
