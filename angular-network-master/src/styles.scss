@@ -1,0 +1,9 @@
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.btn.btn-link {
+    margin-left: 10px;
+    margin-right: 10px;
+}
