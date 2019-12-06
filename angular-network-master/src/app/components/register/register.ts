@@ -4,6 +4,7 @@ import { RegistrationService } from '../../services/index';
 import { UserRegistration } from 'models';
 import { NgForm } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * Ajoute un nouvel utilisateur
@@ -26,9 +27,28 @@ export class RegisterComponent {
 
     register() {
         if (this.ngForm.form.invalid) {
-            return;
+            return this.messageService.error("Invalid form");
         }
-       if(!this.registrationService.register(this.ngForm.form.value)) return;
-       this.router.navigate(['/login'])
+        else if (!this.model.username || this.model.username === "") {
+            return this.messageService.error("You must choose a username");
+        }
+        else if (!this.model.password || this.model.password === "") {
+            return this.messageService.error("You must choose a password");
+        }
+        else {
+            this.registrationService.usernameExists(this.model.username).then( value => {
+                if (value === true) {
+                    return this.messageService.error("This username already exist");
+    
+                } else {
+                    if (this.registrationService.register(this.ngForm.form.value)) {
+                        this.router.navigate(['/login']);
+                    }
+                    else {
+                        return this.messageService.error('Something went wrong');
+                    }
+                }
+            });  
+        }
     }
 }
