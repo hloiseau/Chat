@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChannelService } from 'services';
 
@@ -13,6 +13,9 @@ export class AddChannelComponent {
     @ViewChild(NgForm, { static: false })
     ngForm: NgForm;
     isVisible: boolean = false;
+    
+    // OutPut for interaction with menu Channel
+    // @Output() channelAdded : EventEmitter<any> = new EventEmitter<any>();
 
     model = { name: '' };
     constructor(
@@ -31,7 +34,9 @@ export class AddChannelComponent {
 
     async save() {
         if (this.ngForm.valid) {
-            this.channelService.add(this.model.name)
+            let channel = await this.channelService.add(this.model.name);
+            // emit the new channel (OutPut)
+            // this.channelAdded.emit(channel);
             this.hide();
         }
     }
