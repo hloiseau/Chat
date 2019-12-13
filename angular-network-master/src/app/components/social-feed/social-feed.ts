@@ -18,11 +18,11 @@ export class SocialFeedComponent implements OnInit {
     ) { }
 
     onSubmit(message: string) {
-      this.postService.post(this.channelId, message).then(t => this.items.push(t))
-
+      this.postService.post(this.channelId, message);
     }
 
     ngOnInit() {
+      this.postSocket.onPost((value) => this.items.push(value))
         this.route.params
             .subscribe((params) => {
                 this.channelId = params['id'];

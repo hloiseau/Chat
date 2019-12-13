@@ -1,1 +1,23 @@
-<!-- TODO afficher le message -->
+<div class="header">
+    <div class="user-picture">
+      <user-profile-picture></user-profile-picture>
+    </div>
+    <div class="username">
+      {{comment.user.username}}
+
+      <div class="date">
+        {{comment.creationTime | date }}
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <pre *ngIf="!comment.content" class="message">
+      {{comment.message}}
+    </pre>
+    <div *ngIf="comment.content">
+        <picture-post-content *ngIf="comment.content.type == 'picture'" [postContent]="comment.content"></picture-post-content>
+        <video controls *ngIf="comment.content.type == 'video'" src="{{comment.content.value.mediaUrl}}"></video>
+        <video-post-content *ngIf="comment.content.type == 'youtube'" [postContent]="comment.content" ></video-post-content>
+      </div>
+    </div>
+

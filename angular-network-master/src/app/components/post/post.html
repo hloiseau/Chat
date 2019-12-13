@@ -6,7 +6,7 @@
     {{username}}
 
     <div class="date">
-      <!-- afficher la date avec le pipe date -->
+      {{post.creationTime | date }}
     </div>
   </div>
   <div class="right">
@@ -19,17 +19,22 @@
   </div>
 </div>
 <div class="body">
-  <pre class="message">
+  <pre *ngIf="!post.content" class="message">
     {{post.message}}
   </pre>
   <div *ngIf="post.content">
-    <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
+    <picture-post-content *ngIf="post.content.type == 'picture'" [postContent]="post.content"></picture-post-content>
+    <video controls *ngIf="post.content.type == 'video'" src="{{post.content.value.mediaUrl}}"></video>
+    <video-post-content *ngIf="post.content.type == 'youtube'" [postContent]="post.content" ></video-post-content>
   </div>
 </div>
 <div class="footer">
   <nz-collapse [nzBordered]="false" *ngIf="post.comments && post.comments.length > 0">
     <nz-collapse-panel [nzHeader]="post.comments.length +' commentaire' + (post.comments.length > 1 ? 's' : '')">
-        <!-- TODO afficher le liste des posts avec post-component -->
+      <div *ngFor="let comment of post.comments">
+          <post-comment [comment]="comment"></post-comment>
+      </div>
+
     </nz-collapse-panel>
   </nz-collapse>
 
