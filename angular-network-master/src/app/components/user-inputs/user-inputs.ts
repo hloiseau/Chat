@@ -26,5 +26,6 @@ export class UserInputsComponent {
     send() {
         if(!this.message) return;
         this.submitted.emit(this.message)
+
     }
 }

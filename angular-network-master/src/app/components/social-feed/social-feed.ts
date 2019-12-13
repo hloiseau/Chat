@@ -18,7 +18,7 @@ export class SocialFeedComponent implements OnInit {
     ) { }
 
     onSubmit(message: string) {
-        this.postService.post(this.channelId, message).then(t => console.log(t))
+      this.postService.post(this.channelId, message).then(t => this.items.push(t))
 
     }
 

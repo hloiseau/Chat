@@ -18,13 +18,16 @@ export class MessageParser {
         const pictureRegex = /http[s]?:\/\/.+\.(jpeg|png|jpg|gif)/gmi;
         const pictureMatche = pictureRegex.exec(post.message);
         if (pictureMatche) {
-            // retourner une instance de PicturePostContent
+            return new PicturePostContent(post.message)
         }
 
         const videoRegex = / /gmi;  // TODO
         // retourner une instance de VideoPostContent si match
 
         const youtubeRegex = /(http[s]?:\/\/)?www\.(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\/?\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/gmi;
+        if(youtubeRegex.exec(post.message)){
+          return new YoutubePostContent(post.message)
+        }
         // retourner une instance de YoutubePostContent si match
 
         return null;

@@ -23,6 +23,7 @@ export class PostComponent {
 
     ngOnInit() {
         // détermine le bon type de contenu
+        console.log(this.post)
         this.post.content = this.parser.parse(this.post);
         this.username = this.user.username
     }
@@ -30,6 +31,7 @@ export class PostComponent {
 
 
     onComment(message: string) {
+      this.postService.comment(this.post, message)
         // TODO envoyer le message
     }
 }
