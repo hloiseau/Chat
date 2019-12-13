@@ -1,4 +1,7 @@
 <nav>
+  <!-- If is the output method => -->
+  <!-- <add-channel (channelAdded)="channelAdded($event)"></add-channel> -->
+  <!-- else  -->
   <add-channel></add-channel>
   <div *ngFor="let channel of channels">
     <a [routerLink]="channel.id">{{channel.name}}</a>
