@@ -16,3 +16,8 @@ app {
   margin: auto;
   box-shadow: 0 0 3px #c3c3c3;
 }
+
+article, aside, dialog, figcaption, figure, footer, header, hgroup, legend, main, nav, section {
+  display: block;
+  overflow-y: auto;
+}

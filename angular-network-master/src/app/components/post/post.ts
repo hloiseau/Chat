@@ -23,11 +23,9 @@ export class PostComponent {
 
     ngOnInit() {
         // détermine le bon type de contenu
-        console.log(this.post)
-        this.postSocket.onComment((comment) => this.post.comments.push(comment))
+        this.postSocket.onComment((comment) => this.post.comments.push(comment));
         this.post.content = this.parser.parse(this.post);
-        console.log(this.post.content)
-        this.username = this.user.username
+        this.username = this.user.username;
     }
 
 
