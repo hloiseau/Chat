@@ -19,7 +19,7 @@ export class NotificationService {
             callback({ type: 'Comment', message: `'${value.user.username}' a commenté le post de '${value.post.user.username}' sur le channel '${value.channel.name}'` });
         });
         this.postSocket.onLike( value => {
-            callback({ type: 'Like', message: `'${value.user.username }' a liké le post de '${value.post.user.username}' sur le channel '${value.post.channel}'` });
+            callback({ type: 'Like', message: `'${value.user.username }' a liké le post de '${value.post.user.username}' sur le channel '${value.post.channel.name}'` });
         });
         this.postSocket.onNewChannel( value => {
             callback({ type: 'Channel', message: `'${value.name}' a été ajouté` });
