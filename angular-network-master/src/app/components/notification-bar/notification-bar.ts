@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Notification } from 'models';
 import { NotificationService } from 'services';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
     selector: 'notification-bar',
@@ -9,13 +10,17 @@ import { NotificationService } from 'services';
 export class NotificationBarComponent implements OnInit {
     @Input() notifications: Notification[] = [];
 
-    constructor( private postSocketService: NotificationService ) {
-        this.postSocketService.onNewNotifications( (value) => {
-            this.notifications.push({ type: value.type, message: value.message });
+    constructor( private notificationSocketService: NotificationService, private notification: NzNotificationService) {
+        this.notificationSocketService.onNewNotifications( (value) => {
+            let type = value.type;
+            let message = value.message;
+            this.notification.blank(type, message);
+            this.notifications.push({ type: type, message: message });
         });
     }
 
     ngOnInit() {
-
+        let localNotifications = JSON.parse(localStorage.getItem("Notification"));
+        this.notifications = localNotifications;
     }
 }
