@@ -12,20 +12,20 @@
   <div class="right">
     <div class="actions">
       <!-- TODO liker au clic -->
-      <a [class.liked]="post.liked">
+      <a (click)="onClick()" [class.liked]="post.liked">
         <fa-icon [icon]="[post.liked ? 'fas' : 'far', 'heart']" size="2x"></fa-icon>
       </a>
     </div>
   </div>
 </div>
 <div class="body">
-  <pre *ngIf="!post.content" class="message">
+  <pre  class="message">
     {{post.message}}
   </pre>
-  <div *ngIf="post.content">
-    <picture-post-content *ngIf="post.content.type == 'picture'" [postContent]="post.content"></picture-post-content>
-    <video controls *ngIf="post.content.type == 'video'" src="{{post.content.value.mediaUrl}}"></video>
-    <video-post-content *ngIf="post.content.type == 'youtube'" [postContent]="post.content" ></video-post-content>
+  <div *ngFor="let content of post.content">
+    <picture-post-content style="height: 380px; width: 640px;" *ngIf="content.type == 'picture'" [postContent]="content"></picture-post-content>
+    <video controls *ngIf="content.type == 'video'" [src]="content.value.mediaUrl"></video>
+    <youtube-post-content *ngIf="content.type == 'youtube'" [postContent]="content" ></youtube-post-content>
   </div>
 </div>
 <div class="footer">
