@@ -1,3 +1,12 @@
+<nav>
+    <h1>Notification</h1>
+    <div class="container" *ngFor="let notification of notifications.slice().reverse()">
+        <div class="card">
+            <div class="header">{{ notification.type }}</div>
+            <div class="body">{{ notification.message }}</div>
+        </div>
+    </div> 
+</nav>
 
 <style>
     :host {
@@ -7,5 +16,28 @@
         background: white;
         flex-shrink: 0;
         border-left: 1px solid #d6d6d6;
+    }
+
+    h1 {
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    .card {
+        padding: 10px;
+        background-color: lightgrey;
+        border-radius: 5px;
+    }
+
+    .header {
+        font-weight: bold;
+    }
+
+    .body {
+        padding: 5px;
     }
 </style>

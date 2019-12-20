@@ -32,6 +32,10 @@ export interface Channel {
     id: string;
     name: string;
 }
+export interface Notification {
+    type: string;
+    message: string;
+}
 export class Post {
     id: string;
     user: User;

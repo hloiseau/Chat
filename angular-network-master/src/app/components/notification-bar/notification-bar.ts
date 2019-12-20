@@ -1,11 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Notification } from 'models';
+import { NotificationService } from 'services';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
     selector: 'notification-bar',
     templateUrl: 'notification-bar.html'
 })
 export class NotificationBarComponent implements OnInit {
-    constructor() { }
+    @Input() notifications: Notification[] = [];
 
-    ngOnInit() { }
+    constructor( private notificationSocketService: NotificationService, private notification: NzNotificationService) {
+        this.notificationSocketService.onNewNotifications( (value) => {
+            let type = value.type;
+            let message = value.message;
+            this.notification.blank(type, message);
+            this.notifications.push({ type: type, message: message });
+        });
+    }
+
+    ngOnInit() {
+        let localNotifications = JSON.parse(localStorage.getItem("Notification"));
+        this.notifications = localNotifications;
+    }
 }
