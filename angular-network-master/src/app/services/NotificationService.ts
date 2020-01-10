@@ -22,7 +22,7 @@ export class NotificationService {
             callback(notification);
         });
         this.postSocket.onComment( value => {
-            let notification = { type: 'Comment', message: `'${value.user.username}' a commenté le post de '${value.post.user.username}' sur le channel '${value.channel.name}'` };
+            let notification = { type: 'Comment', message: `'${value.user.username}' a commenté le post de '${value.post.user.username}' sur le channel '${value.post.channel.name}'` };
             this.setInLocalStorage(notification);
             callback(notification);
         });

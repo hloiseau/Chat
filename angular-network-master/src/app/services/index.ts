@@ -10,3 +10,4 @@ export { AuthenticationService } from './AuthenticationService';
 export { AuthGuard } from './AuthGuard';
 export { RegistrationService } from './RegistrationService';
 export { NotificationService } from './NotificationService';
+export { WebNotificationService } from './WebNotificationService';

@@ -76,7 +76,8 @@ library.add(fas, far);
         },
         services.RegistrationService,
         { provide: NZ_I18N, useValue: fr_FR },
-        services.NotificationService
+        services.NotificationService,
+        services.WebNotificationService
     ],
     bootstrap: [components.AppComponent]
 })
