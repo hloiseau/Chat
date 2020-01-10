@@ -35,6 +35,8 @@ export interface Channel {
 export interface Notification {
     type: string;
     message: string;
+    channel: string;
+    post: string;
 }
 export class Post {
     id: string;

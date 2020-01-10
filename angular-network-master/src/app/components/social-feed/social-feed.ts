@@ -29,8 +29,7 @@ export class SocialFeedComponent implements OnInit {
                 this.postService
                     .getAll(this.channelId)
                     .then((items) => {
-                        this.items = items
-                        console.log(this.items)
+                        this.items = items;
                     });
             });
     }

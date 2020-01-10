@@ -17,22 +17,22 @@ export class NotificationService {
 
     onNewNotifications(callback: (notification:  Notification) => void) {
         this.postSocket.onPost( value => {
-            let notification = { type: 'Post', message: `'${value.user.username}' a posté '${value.message}' sur le channel '${value.channel.name}'` };
+            let notification = { type: 'Post', message: `'${value.user.username}' a posté '${value.message}' sur le channel '${value.channel.name}'`, channel: value.channel.id, post: value.id };
             this.setInLocalStorage(notification);
             callback(notification);
         });
         this.postSocket.onComment( value => {
-            let notification = { type: 'Comment', message: `'${value.user.username}' a commenté le post de '${value.post.user.username}' sur le channel '${value.post.channel.name}'` };
+            let notification = { type: 'Comment', message: `'${value.user.username}' a commenté le post de '${value.post.user.username}' sur le channel '${value.post.channel.name}'`, channel: value.post.channel.id, post: value.post.id };
             this.setInLocalStorage(notification);
             callback(notification);
         });
         this.postSocket.onLike( value => {
-            let notification = { type: 'Like', message: `'${value.user.username }' a liké le post de '${value.post.user.username}' sur le channel '${value.post.channel.name}'` };
+            let notification = { type: 'Like', message: `'${value.user.username }' a liké le post de '${value.post.user.username}' sur le channel '${value.post.channel.name}'`, channel: value.post.channel.id, post: value.post.id };
             this.setInLocalStorage(notification);
             callback(notification);
         });
         this.postSocket.onNewChannel( value => {
-            let notification = { type: 'Channel', message: `'${value.name}' a été ajouté` };
+            let notification = { type: 'Channel', message: `'${value.name}' a été ajouté`, channel: value.id, post: "null" };
             this.setInLocalStorage(notification);
             callback(notification);
         });

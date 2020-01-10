@@ -22,7 +22,7 @@
   <pre  class="message">
     {{post.message}}
   </pre>
-  <div *ngFor="let content of post.content">
+  <div *ngFor="let content of post.content" [attr.id]='post.id'>
     <picture-post-content style="height: 380px; width: 640px;" *ngIf="content.type == 'picture'" [postContent]="content"></picture-post-content>
     <video controls *ngIf="content.type == 'video'" [src]="content.value.mediaUrl"></video>
     <youtube-post-content *ngIf="content.type == 'youtube'" [postContent]="content" ></youtube-post-content>

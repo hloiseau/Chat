@@ -52,7 +52,11 @@ library.add(fas, far);
                 blacklistedRoutes: [`${host}:${port}/api/authentication/login/`]
             }
         }),
-        RouterModule.forRoot(rootRouterConfig),
+        RouterModule.forRoot(rootRouterConfig, {
+            useHash: false,
+            anchorScrolling: 'enabled',
+            // ...any other options you'd like to use
+        }),
         FontAwesomeModule,
         BrowserAnimationsModule,
         NgZorroAntdModule

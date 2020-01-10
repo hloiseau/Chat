@@ -1,10 +1,12 @@
 <nav>
     <h1>Notification</h1>
     <div class="container" *ngFor="let notification of notifications.slice().reverse()">
-        <div class="card">
-            <div class="header">{{ notification.type }}</div>
-            <div class="body">{{ notification.message }}</div>
-        </div>
+        <a [routerLink]="['./',notification.channel]" [fragment]="notification.post">
+            <div class="card">
+                <div class="header">{{ notification.type }}</div>
+                <div class="body">{{ notification.message }}</div>
+            </div>
+        </a>
     </div> 
 </nav>
 

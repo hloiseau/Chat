@@ -12,7 +12,6 @@ export class WebNotificationService {
                 this.permission = true;
         });
         document.addEventListener("visibilitychange", () => {
-            console.log(document.visibilityState);
             if(document.visibilityState === "hidden")
                 this.pageIsHidden = true;
             else
@@ -21,16 +20,9 @@ export class WebNotificationService {
     }
 
     newWebNotification(title : string, message : string) {
-        console.log("test1")
         if(this.permission) {        
-            console.log("test2")
             if (this.pageIsHidden) {
-                console.log("test3");
-
-                let notification = new Notification(title, { body: message });
-                notification.addEventListener("click", (event) => {
-                    console.log(event);
-                })
+                new Notification(title, { body: message });
             }
         }
     }

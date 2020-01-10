@@ -30,8 +30,7 @@ export class PostComponent {
           }
         })
         this.post = this.parser.parse(this.post);
-        console.log(this.post)
-        this.username = this.user.username
+        this.username = this.user.username;
     }
 
     onComment(message: string) {

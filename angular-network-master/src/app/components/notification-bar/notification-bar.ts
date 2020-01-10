@@ -15,7 +15,7 @@ export class NotificationBarComponent implements OnInit {
             let type = value.type;
             let message = value.message;
             this.notification.blank(type, message);
-            this.notifications.push({ type: type, message: message });
+            this.notifications.push({ type: type, message: message, channel: value.channel, post: value.post });
             notificationWebSocketService.newWebNotification(`${type} Notification :`, message);
         });
     }
