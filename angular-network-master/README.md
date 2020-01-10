@@ -24,54 +24,54 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 #### Level I
 
-1. Faire le formulaire pour l'ajout d'un user
-2. Rendre username et le mot de passe obligatoire
-3. En cas de succès, rediriger l'utilisateur sur /login
+1. Faire le formulaire pour l'ajout d'un user X
+2. Rendre username et le mot de passe obligatoire X
+3. En cas de succès, rediriger l'utilisateur sur /login X
 
 #### Level II
-4. Afficher les messages d'erreurs de validation pour le mot de passe
-5. Vérifier si le username est disponible. Informer l'utilisateur de l'indisponibilité d'un username.
+4. Afficher les messages d'erreurs de validation pour le mot de passe X
+5. Vérifier si le username est disponible. Informer l'utilisateur de l'indisponibilité d'un username. X
 
 
 ### Login
 
 #### Level I
 
-1. Faire le formulaire de login
-2. Rendre username et le mot de passe obligatoire
-3. Rediriger l'utilisateur sur "/" en cas de succès
+1. Faire le formulaire de login X
+2. Rendre username et le mot de passe obligatoire X
+3. Rediriger l'utilisateur sur "/" en cas de succès X
 
 #### Level II
 
-4. Afficher les messages d'erreurs de validation pour chaque champs
-5. Afficher un message si le login à échoué
+4. Afficher les messages d'erreurs de validation pour chaque champs X
+5. Afficher un message si le login à échoué X
 
 
 ### Channel
 
 #### Level I
 
-1. Afficher la liste des channels dans le menu
-2. Naviguer sur un channel au clic dans le menu
+1. Afficher la liste des channels dans le menu X
+2. Naviguer sur un channel au clic dans le menu X
 
 #### Level II
 
-3. Pouvoir créer un nouveau channel
-4. Sélectionner par défaut le premier channel de la liste
-5. Ajouter ajouter les nouveaux channels dynamiquement
+3. Pouvoir créer un nouveau channel X
+4. Sélectionner par défaut le premier channel de la liste X
+5. Ajouter ajouter les nouveaux channels dynamiquement X
 
 ### Post
 
 ### Level I
 
-1. Afficher les posts reçues pour le channel courant
-2. Afficher l'auteur des messages
-3. Afficher la date du posts
-4. Insérer les nouveaux posts reçues via WebSocket
-5. Afficher une image si le message contient une url vers une image
-6. Afficher une video si le message contient une url vers une vidéo (https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4)
-7. Afficher le player de youtube si le message contient un lien youtube
-8. Ajouter le bouton like
+1. Afficher les posts reçues pour le channel courant X
+2. Afficher l'auteur des messages X
+3. Afficher la date du posts X
+4. Insérer les nouveaux posts reçues via WebSocket X
+5. Afficher une image si le message contient une url vers une image X
+6. Afficher une video si le message contient une url vers une vidéo (https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4) X
+7. Afficher le player de youtube si le message contient un lien youtube X
+8. Ajouter le bouton like X
 
 ### Level II
 9. Retirer les urls des messages parsés pour ne restituer que son contenu
@@ -83,13 +83,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Commentaires
 
 ### Level I
-1. Pouvoir commenter un post
-2. Afficher les commentaires d'un post 
-3. Afficher l'auteur du commentaires
-4. Insérer les nouveaux commentaires reçues via WebSocket
+1. Pouvoir commenter un post X
+2. Afficher les commentaires d'un post  X
+3. Afficher l'auteur du commentaires X
+4. Insérer les nouveaux commentaires reçues via WebSocket X
 
 ### Level II
-5. Parser les commentaires comme les posts : extraire les images, vidéos...
+5. Parser les commentaires comme les posts : extraire les images, vidéos... X
 
 ### Activités et notifications 
 

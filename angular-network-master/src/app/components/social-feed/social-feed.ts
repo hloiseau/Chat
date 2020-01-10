@@ -22,7 +22,7 @@ export class SocialFeedComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.postSocket.onPost((value) => this.items.push(value))
+      this.postSocket.onPost((value) => this.items.unshift(value))
         this.route.params
             .subscribe((params) => {
                 this.channelId = params['id'];
